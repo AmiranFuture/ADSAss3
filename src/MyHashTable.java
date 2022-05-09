@@ -62,4 +62,19 @@ public class MyHashTable<K,V> {
     }
 
 
+    public V get(K key){
+        int HashValue = hash(key);
+        HashNode hashBusket = chainArray[HashValue];
+
+        while(hashBusket != null && hashBusket.key != key) {
+            hashBusket = hashBusket.next;
+        }
+    }
+
+    public V remove(K key){}
+
+    public boolean contains(V value){}
+
+    public K getKey(V value){}
+
 }
