@@ -84,10 +84,10 @@ public class MyHashTable<K,V> {
         }
     }
 
-    public K getKey(V value, int key){
-        int HashValue = hash(key);
+    public K getKey(V value){
+        int HashValue = hash(value);
         HashNode hashBusket = chainArray[HashValue];
-        while(hashBusket !=null && hashBusket.key != key){
+        while(hashBusket !=null && hashBusket.value != value){
             hashBusket = hashBusket.next;
         }
         return hashBusket;
