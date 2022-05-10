@@ -71,10 +71,30 @@ public class MyHashTable<K,V> {
         }
     }
 
-    public V remove(K key){}
+    public V remove(K key){
+        size--;
+        HashNode curNode = V get(key);
+        curNode.delete();
+    }
 
-    public boolean contains(V value){}
+    public boolean contains(V value){
+        size=0;
+        for(int i=0; i<chainArray.length; i++){
+            chainArray[i] = null;
+        }
+    }
 
-    public K getKey(V value){}
+    public K getKey(V value, int key){
+        int HashValue = hash(key);
+        HashNode hashBusket = chainArray[HashValue];
+        while(hashBusket !=null && hashBusket.key != key){
+            hashBusket = hashBusket.next;
+        }
+        return hashBusket;
+    }
+
+    public void delete(int key){
+        V remove(key);
+    }
 
 }
